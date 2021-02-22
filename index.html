@@ -1,0 +1,101 @@
+<html>
+<style>
+
+  input[type="submit"] {
+    background-color: #3bfffc;
+    font-size: 15px;
+    border: 2px solid black;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  button {
+    background-color: #3bfffc;
+    font-size: 15px;
+    border: 2px solid black;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  body {
+    background-color: #b95ff5;
+    border: none;
+    color: black;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    padding:0;
+    margin:0;
+  }
+
+  img {
+    max-width: 10%;
+    height: auto;
+    padding:0;
+    margin:0;
+  }
+
+  textarea {
+    size: border-box;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+    resize: none;
+    margin-bottom: 8px;
+    background-color: white;
+    width: 675px;
+    height: 300px;
+    border: 7px solid black;
+  }
+</style>
+
+<title>Auto Ryhme Generator</title>
+
+<body>
+  <div id="main">
+    <center>
+      <h1>Auto Rhyme Generator</h1>
+      <h4>Pulls Ryhmes from Ryhmezone.com and shows rhyme tables for all words</h4>
+      <h5><i>Copyright 2021 Jack Kelly</i></h5>
+      <form>
+        <textarea name="words" id="words">Enter up to 30 words seperated by commas.</textarea>
+        <br>
+        <input type="submit" role="button" aria-label="Find Rhymes" value="Find Rhymes">
+      </form>
+      <div id="loading">
+      </div>
+      <br>
+    </center>
+  </div>
+  <script>
+    const electron = require('electron');
+    const {
+      ipcRenderer
+    } = electron;
+    document.querySelector('form').addEventListener('submit', submitForm);
+
+    function submitForm(e) {
+      e.preventDefault();
+      var words = document.querySelector('#words').value;
+      ipcRenderer.send('words:add', words);
+    }
+    ipcRenderer.on('complete:success', function(e){
+        var loadingSection = document.querySelector('#loading');
+        loadingSection.innerHTML = "<image src=\"./images/complete.png\"><h3>Complete!</h3></h4><button onclick=\"showResults()\">View Results</button>";
+      });
+    ipcRenderer.on('progress:current', function(e){
+      var loadingSection = document.querySelector('#loading');
+      loadingSection.innerHTML = "<image src=\"./images/loading.gif\"><h3>Working....</h3>";
+      });
+
+      function showResults(){
+        ipcRenderer.send('show:results');
+      }
+  </script>
+</body>
+
+</html>

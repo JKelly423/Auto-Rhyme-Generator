@@ -1,0 +1,31 @@
+{
+  "name": "rhymeGenerator",
+  "version": "1.0.0",
+  "description": "A tool to scrape rhymes from RhymeZone.com",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "winpack": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=favicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Auto Rhyme Tables\""
+  },
+  "author": "Jack Kelly",
+  "license": "NO Lisence",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "fs-extra": "^8.1.0",
+    "http": "^0.0.0",
+    "install": "^0.13.0",
+    "node-gyp": "^6.0.1",
+    "node-pre-gyp": "^0.14.0",
+    "promise-poller": "^1.9.1",
+    "puppeteer": "^2.0.0",
+    "rebuild": "^0.1.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "electron": "^1.7.6",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^9.0.1",
+    "asar": "^0.14.6"
+  }
+}
