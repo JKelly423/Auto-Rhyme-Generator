@@ -1,7 +1,7 @@
 #### Copyright ©️ 2021 Jack Kelly
 # Auto-Rhyme-Generator
 
-### Electron Node JS program to pull rhymes off a website using puppeteer browser automation. Saves results to a html table.
+### Electron Node JS program to scrape rhymes off [RhymeZone](https://www.rhymezone.com/) using puppeteer headless browser automation. Saves results to an easily digestible HTML table.
 
 <br>
 
