@@ -5,9 +5,4 @@
 
 <br>
 
-©️ COPYRIGHT DISCLAIMER
- ##### Unless otherwise stated in the LISENCE of one of my individual repositories, all code featured on my profile is NOT LICENSED. This means that absolutely NO UNAUTHORIZED USE OR DISTRBUTION PERMITTED. I am the sole owner of any and all code featured on my Github profile. Any violators will be persecuted.
- 
-#### This code has NO LICENSE.
-#### UNAUTHORIZED USE OR DISTRUBTION IS STRICTLY PROHIBITED.
-#### Copyright ©️ 2021 Jack Kelly
+#### This code is licensed under the GNU General Public License v3.0
